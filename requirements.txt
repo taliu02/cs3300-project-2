@@ -1,5 +1,4 @@
-openai
+clopenai
 gspread
 gdown
 requests
-load_dotenv

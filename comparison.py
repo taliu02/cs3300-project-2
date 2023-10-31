@@ -3,7 +3,7 @@ import json, os
 from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-from candidate import JobCandidate
+from Candidate import JobCandidate
 
 def getContent(resumeA: str, resumeB: str) -> str:
     return (
