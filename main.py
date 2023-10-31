@@ -1,27 +1,32 @@
 import gspread
 import os
-import gdown    
-from parser import extract_text
+from candidate import JobCandidate
+from dotenv import load_dotenv
+from comparison import bubble_sort
+
 sa = gspread.service_account(filename='service_creds.json')
 sh = sa.open("Figma_swe")
 
 wks = sh.worksheet("Sheet1")
 data = wks.get_all_values()
-link=data[1][3]
-id=link.split('=')[-1]
 
+
+# Load environment variables from the .env file
+load_dotenv()
 # destination_path = os.path.join(os.getcwd(), id)
+candidates=[]
 for i in range(1, len(data)):
-    print(data[i])
+    candidates.append(JobCandidate(data[i]))
 
 
+sort_cand = bubble_sort(candidates)
+for candidate in sort_cand:
+    print(candidate.name)
 
-gdown.download(id=id, quiet=True, use_cookies=False, output='tmp.pdf')
+#in the future
+# writeToSheets(candidates)
 
-
-# print(extract_text('tmp.pdf'))
-
-
+    
 
 
 
