@@ -1,4 +1,4 @@
-openai
+clopenai
 gspread
 gdown
 requests
