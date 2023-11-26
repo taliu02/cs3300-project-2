@@ -2,8 +2,9 @@ from typing import Optional
 import gdown
 import os
 from datetime import datetime  # Importing the datetime class directly
-
+from gh import getBasicReport
 from mathpix import extract_text
+from pathlib import Path 
 class JobCandidate:
     def __init__(self, data: list):
         self.timestamp = datetime.strptime(data[0], "%m/%d/%Y %H:%M:%S")
@@ -13,8 +14,8 @@ class JobCandidate:
         self.resume_text= self.parse_resume()
         self.cover_letter = data[4]
         self.linkedin = data[5]
-        self.github = data[6]
-        self.personal_website = data[7]
+        self.github_link = data[6]
+        self.personal_website_link = data[7]
         self.visa_sponsorship = data[8]
         self.disability_status = data[9]
         self.ethnic_background = data[10]
@@ -26,7 +27,7 @@ class JobCandidate:
                 f"Applied on: {self.timestamp}\n"
                 f"Email: {self.email}\n"
                 f"Resume {self.resume_text}\n"
-                f"Personal Website: {self.personal_website}\n"
+                f"Personal Website: {self.personal_website_link}\n"
                 f"Visa Sponsorship: {self.visa_sponsorship}\n"
                 f"Disability Status: {self.disability_status}\n"
                 f"Ethnic Background: {self.ethnic_background}\n"
@@ -37,15 +38,13 @@ class JobCandidate:
         id = self.resume_link.split('=')[-1]
         pdf_dir = os.path.join(os.getcwd(), "resume_pdfs")
         mmd_dir = os.path.join(os.getcwd(), "resume_mmds")
-
-        # Ensure the directories exist
         if not os.path.exists(pdf_dir):
             os.makedirs(pdf_dir)
         if not os.path.exists(mmd_dir):
             os.makedirs(mmd_dir)
 
-        pdf_path = os.path.join(pdf_dir, f"{id}.pdf")
-        mmd_path = os.path.join(mmd_dir, f"{id}.pdf.mmd")
+        pdf_path = os.path.join(pdf_dir, f"{self.email}.pdf")
+        mmd_path = os.path.join(mmd_dir, f"{self.email}.pdf.mmd")
 
         try:
             # Check if the parsed text already exists
@@ -58,14 +57,25 @@ class JobCandidate:
                 
                 # Check if the download was successful
                 if os.path.exists(pdf_path):
-                    return extract_text(pdf_path)
+                    t = extract_text(pdf_path)
+                    preproccessed = t.replace(self.name, "applicant")
+                    preprocessed = preproccessed.replace(self.name.split(" ")[0], "applicant")
+                    return preprocessed
                 else:
                     return "Failed to download the PDF."
         except Exception as e:
-            return str(e)  # Return the error message
+            return str(e)  
 
-    
-    
+
+
+    def parse_gh(self):
+        username = self.github_link.replace("https://github.com/", "").replace("github.com", "").replace("/", "")
+
+        return ""
+
+    def parse_portfolio(self):
+        pass
+
     
     def __lt__(self, other):
         if not isinstance(other, JobCandidate):
