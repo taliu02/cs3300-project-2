@@ -13,8 +13,14 @@ HEADERS = {
 }
 
 
-def extract_text(file_path: str) -> str:
 
+import os
+import json
+import requests
+import time
+
+def extract_text(file_path: str) -> str:
+    print(HEADERS)
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"The file at {file_path} does not exist.")
     
