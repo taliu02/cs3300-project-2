@@ -3,7 +3,7 @@ import gdown
 import os
 from datetime import datetime  # Importing the datetime class directly
 
-from parser import extract_text
+from mathpix import extract_text
 class JobCandidate:
     def __init__(self, data: list):
         self.timestamp = datetime.strptime(data[0], "%m/%d/%Y %H:%M:%S")
