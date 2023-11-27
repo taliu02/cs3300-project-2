@@ -72,19 +72,15 @@ def get_rubric():
 def comp(candidateA:JobCandidate, candidateB:JobCandidate, rub_id:int=0 ) -> int:
     comp_table= json.load(open("comparisons.json","r"))
     tag= (candidateA.email+"#"+candidateB.email+"#"+str(rub_id))
-    if tag in comp_table:
-        return comp_table[tag]
-    else:
-        choice = compare_resumes(getContent(candidateA.resume_text, candidateB.resume_text))   
-        if choice == 1:
-            choice = -1
-        elif choice == 2:
-            choice = 1
-        comp_table[tag]=choice
-        json.dump(comp_table, open("comparisons.json","w"))
-        
-        return choice
+    inv_tag= (candidateB.email+"#"+candidateA.email+"#"+str(rub_id))
 
+    else:
+        choice = compare_resumes(getContent(candidateA, candidateB), candidateA.name, candidateB.name)   
+        comp_table[tag]=choice
+        comp_table[inv_tag]=choice*-1
+
+        json.dump(comp_table, open("comparisons.json","w"))
+        return choice
 
 def bubble_sort(candidates: list) -> list:
     n = len(candidates)
