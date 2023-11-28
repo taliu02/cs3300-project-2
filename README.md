@@ -38,8 +38,8 @@ _Release Date: 28 November_
 - **Real-time Updates**: The system does not currently support real-time updates from Google Sheets, requiring manual triggering of data retrieval.
 - **Automated Testing Integration**: Automated unit and integration tests for the system are yet to be implemented.
 
-
 ## Install Guide
+
 
 ### Pre-requisites
 
