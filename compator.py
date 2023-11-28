@@ -101,3 +101,82 @@ def google_compare_resumes(content:str, nameA="", nameB=""):
 
     return choice
     
+
+def compare_resumes(content:str, nameA="", nameB=""):
+    retries = 3
+    choice = 0
+
+    while retries > 0:
+        try:
+            response = openai.ChatCompletion.create(
+                model='gpt-4-0613',
+                messages=[
+        {"role": "user", "content":         
+            """
+            You are an LLM recrutier who will choose between two candidates based on an provided rubric,
+            you will only use bullet point and broken english instead of proper english to be more concise in your justification
+            You will also provide args for selectCandidate
+            """
+        },
+        {"role": "assistant", "content":         
+            """
+            I can assist you in evaluating two candidates based on a provided rubric. 
+            Provide me with the rubric or the criteria you'd like to use for the evaluation, 
+            and I'll help you assess the candidates accordingly and explain myself conscisely and will
+            provide args for selectCandidate
+            """
+        },
+        {"role": "user", "content": content}
+
+                ],
+                functions=[
+                    {
+                        "name": "selectCanidate",
+                        "description": "choose between the two canidates",
+                        "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "choice_num": {
+                                    "type": "integer",
+                                    "description": "1 for Candidate A is the best fit, 2 for Candidate B is the best fit",
+                                    "required": ["choice_num"],
+                                },
+                                "justifcation": {
+                                    "type": "string",
+                                    "description": "justifcation for why you chose the candidate",
+                                    "required": ["justifcation"],
+                                },
+                            }
+                        },
+                    }
+                ],
+                function_call="auto",
+            )
+
+            message = response["choices"][0]["message"]
+
+            if message.get("function_call"):
+                function_name = message["function_call"]["name"]
+                function_args = json.loads(message["function_call"]["arguments"])
+                choice = (int(function_args["choice_num"]))
+
+                if function_name == "selectCanidate":
+                    if choice == 1:
+                        choice = -1
+                        printc(nameA+" wins over "+nameB, "cyan")
+                    elif choice == 2:
+                        choice = 1
+                        printc(nameB+" wins over "+nameA, "green")
+
+                    printc(function_args["justifcation"], "yellow")
+
+            break  # Break the loop if everything went well
+
+        except Exception as e:
+            printc("Error: " + str(e), "red")
+            retries -= 1
+            if retries == 0:
+                printc("Maximum retries reached.", "red")
+                return 0  # Or any other default value or error indicator
+
+    return choice
