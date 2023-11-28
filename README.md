@@ -2,8 +2,8 @@
 
 ## Release Notes
 
-**Version 1.1**  
-_Release Date: 28 November_
+**Demo Version 1.1 **  
+_Release Date: 28th November 2023_
 
 ### New Software Features for this Release
 
@@ -52,7 +52,37 @@ candiate.py: Class that holds data for candidate and will hold comparator
 
 parser.py: uses Mathpix api to turn resume into markdown
 
+### Dependent Libraries
+
+- Mathpix API: Required for resume processing.
+- Google Sheets API: Necessary for data retrieval and integration.
+- Redis: Used for caching GitHub details (if applicable).
+
+### Download Instructions
+
+1. Clone the repository from GitHub: `git clone gh repo clone danikhan632/cs3300-project-2`
+2. Navigate to the cloned repository.
+
+### Build Instructions
+
+1. Install required Python libraries: `pip install -r requirements.txt`
+2. Set up environment variables for API access (see provided `.env` file).
+
+### Installation of Actual Application
+
+- No additional installation steps required post-build.
+
+### Run Instructions
+
+- Execute the main script: `python main.py`
+
+### Troubleshooting
+
+- Issue: Google Sheets API access error.
+  - Solution: Verify that the API key is correctly set in the environment.
+- Issue: Mathpix API not processing images.
+  - Solution: Check network connectivity and API limits.
+
 ```bash
 wget https://hackgtstoragebucket.s3.amazonaws.com/service_creds.json && wget https://hackgtstoragebucket.s3.amazonaws.com/.env
-
 ```
