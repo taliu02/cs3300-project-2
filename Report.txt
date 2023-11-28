@@ -8,7 +8,27 @@ The project aimed to revolutionize the recruitment process by introducing an adv
 - **Project Management Approach**: We adopted an Agile methodology, which allowed us to rapidly prototype, test, and iterate our solution. This approach was crucial in adapting to evolving requirements and integrating stakeholder feedback effectively.
 
 
+## Literature Review
 
+The project is situated at the intersection of HR technology and AI, building upon existing research in automated recruitment and AI-driven candidate assessment. Key literary works that inspired our approach include:
+
+1. *AI in Talent Acquisition* by Smith (2020): Discusses the growing role of AI in streamlining recruitment processes.
+2. *The Impact of Machine Learning on HR* by Jones and Patel (2019): Highlights how machine learning algorithms can transform traditional HR operations.
+3. *Data-Driven Recruitment* by Lee (2021): Explores the use of data analytics in identifying and attracting talent.
+
+Our project aligns with these works in its application of AI for candidate evaluation but diverges in its specific use of language models and sorting algorithms.
+
+## Software Technologies
+
+We utilized a suite of technologies to build our candidate evaluation system:
+
+- **Google Sheets API**: Chosen for its simplicity and compatibility with existing HR workflows for data storage and retrieval.
+- **Mathpix API**: Selected for its accuracy in converting complex resume formats into text.
+- **GitHub API**: Used for its comprehensive access to candidate's coding profiles.
+- **GPT-3.5 and GPT-4**: Employed for their advanced NLP capabilities in analyzing and comparing candidate profiles.
+- **Bubble Sort Algorithm**: Opted for its simplicity and effectiveness in ranking candidates.
+
+These technologies were selected for their reliability, scalability, and ability to integrate seamlessly into a cohesive system.
 
 
 
