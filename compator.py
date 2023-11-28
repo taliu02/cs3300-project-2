@@ -44,7 +44,7 @@ def getContent(candidateA, candidateB) -> str:
 
     )
 
-def google_compare_resumes(content:str, nameA="", nameB=""):
+def compare_candidates(content:str, nameA="", nameB=""):
     choice =0
     messages=[
         {"role": "user", "content": "You are an LLM recrutier who will choose between two candidates based on an provided rubric"},
@@ -100,14 +100,14 @@ def google_compare_resumes(content:str, nameA="", nameB=""):
     return choice
     
 
-def compare_resumes(content:str, nameA="", nameB=""):
+def compare_candidates_oai(content:str, nameA="", nameB=""):
     retries = 3
     choice = 0
 
     while retries > 0:
         try:
             response = openai.ChatCompletion.create(
-                model='gpt-4-0613',
+                model=LLM,
                 messages=[
         {"role": "user", "content":         
             """
@@ -204,7 +204,10 @@ def comp(candidateA:JobCandidate, candidateB:JobCandidate, rub_id:int=0 ) -> int
         elif comp_table[inv_tag]==-1:
             printc(candidateB.name+" wins over "+candidateA.name,"magenta")
     else:
-        choice = compare_resumes(getContent(candidateA, candidateB), candidateA.name, candidateB.name)   
+        if 'gpt' in LLM:
+            choice = compare_candidates_oai(getContent(candidateA, candidateB), candidateA.name, candidateB.name)
+        else:
+            choice = compare_candidates(getContent(candidateA, candidateB), candidateA.name, candidateB.name)
         comp_table[tag]=choice
         comp_table[inv_tag]=choice*-1
 
