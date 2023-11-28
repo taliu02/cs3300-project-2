@@ -1,13 +1,16 @@
-Objective
-Prepare a detailed Project Report that encapsulates the development, implementation, and key outcomes of project 2. The submission should be a GitHub page link (No pdf submissions) and is valued at 200 points.
 
-Report Structure
-Your Project Report should comprehensively cover the following sections:
+# Project 2 Report: Advanced Candidate Evaluation System
 
-Introduction/Background (30 Points):
+## Introduction/Background
+The project aimed to revolutionize the recruitment process by introducing an advanced candidate evaluation system. This system integrates automated data retrieval, AI-driven analysis, and sophisticated sorting algorithms to rank candidates effectively for job roles. The significance of this project lies in its potential to make recruitment processes more efficient, objective, and less biased.
 
-Offer an overview of the project's context and significance.
-Define the project scope and your project management approach.
+- **Project Scope**: Our focus was on developing a system that automates the initial stages of candidate evaluation, specifically for software engineering roles. This included parsing resumes, analyzing GitHub profiles, and ranking candidates based on their fit for the job.
+- **Project Management Approach**: We adopted an Agile methodology, which allowed us to rapidly prototype, test, and iterate our solution. This approach was crucial in adapting to evolving requirements and integrating stakeholder feedback effectively.
+
+
+
+
+
 
 Project 2 focused on enhancing the efficiency and effectiveness of the recruitment process. We developed an advanced candidate evaluation system using a combination of automated data retrieval, AI-driven analysis, and sophisticated sorting algorithms.
 The scope of this project encompassed the development of a system that streamlines the candidate selection process, specifically targeting the reduction of manual effort in evaluating resumes and GitHub profiles.
