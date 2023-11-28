@@ -2,8 +2,8 @@ import openai;
 import json, os,sys
 from dotenv import load_dotenv
 load_dotenv()
-# openai.api_key = os.environ.get("OPENAI_API_KEY")
-import openai; openai.api_key = "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"
+openai.api_key = os.environ.get("OPENAI_API_KEY")
+
 from Candidate import JobCandidate
 
 
