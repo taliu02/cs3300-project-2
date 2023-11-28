@@ -1,0 +1,36 @@
+Objective
+Prepare a detailed Project Report that encapsulates the development, implementation, and key outcomes of project 2. The submission should be a GitHub page link (No pdf submissions) and is valued at 200 points.
+
+Report Structure
+Your Project Report should comprehensively cover the following sections:
+
+Introduction/Background (30 Points):
+
+Offer an overview of the project's context and significance.
+Define the project scope and your project management approach.
+Literature Review (20 Points):
+
+Discuss related work and how your project aligns with or diverges from existing solutions or methodologies.
+Software Technologies (20 Points):
+
+Detail the technologies, tools, and frameworks used.
+Justify the selection of these technologies.
+Project Lifecycle (20 Points):
+
+Describe the stages of your project's development.
+Explain the methodologies and processes implemented.
+Requirements (30 Points):
+
+Document both Functional and Non-Functional Requirements.
+Make sure to mention the 3 MMFs in detail here
+Discuss the process of identifying and prioritizing these requirements.
+Design (30 Points):
+
+Present architectural and low-level design diagrams.
+Explain your design decisions and their impact.
+Testing (50 Points):
+
+Elaborate on the Test Strategy, including whitebox and blackbox testing methods.
+List various tools used for testing and explain their purpose.
+Provide detailed test cases and their outcomes.
+Discuss how testing influenced the development process and the final product.
