@@ -6,15 +6,11 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 from Candidate import JobCandidate
 
-
 import litellm
 from litellm import completion
 
 
 import xml.etree.ElementTree as ET
-
-
-
 
 
 def printc(obj, color="cyan"):
