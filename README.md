@@ -2,8 +2,8 @@
 
 ## Release Notes
 
-**Version 1.1**  
-_Release Date: 28 November_
+**Demo Version 1.1 **  
+_Release Date: 28th November 2023_
 
 ### New Software Features for this Release
 
@@ -39,7 +39,6 @@ _Release Date: 28 November_
 - **Automated Testing Integration**: Automated unit and integration tests for the system are yet to be implemented.
 
 ## Install Guide
-
 
 ### Pre-requisites
 
