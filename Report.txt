@@ -30,34 +30,41 @@ We utilized a suite of technologies to build our candidate evaluation system:
 
 These technologies were selected for their reliability, scalability, and ability to integrate seamlessly into a cohesive system.
 
+## Project Lifecycle
 
+Our project was structured into several key stages:
 
-Project 2 focused on enhancing the efficiency and effectiveness of the recruitment process. We developed an advanced candidate evaluation system using a combination of automated data retrieval, AI-driven analysis, and sophisticated sorting algorithms.
-The scope of this project encompassed the development of a system that streamlines the candidate selection process, specifically targeting the reduction of manual effort in evaluating resumes and GitHub profiles.
-Our approach to project management was agile, with iterative development cycles, regular team meetings, and continuous integration of feedback.
-Literature Review (20 Points):
+- **Planning and Research**: Involved identifying project requirements and reviewing related literature.
+- **Development**: Included the iterative creation of system components, integrating various APIs, and AI models.
+- **Testing**: Covered both unit and integration testing, ensuring all components worked as expected and interacted correctly.
+- **Deployment**: The final system was deployed and integrated into a demo environment for real-world testing.
 
-Discuss related work and how your project aligns with or diverges from existing solutions or methodologies.
-Software Technologies (20 Points):
+We employed Agile methodologies, with regular scrums and sprints, allowing for flexible adaptation to emerging challenges and requirements.
 
-Detail the technologies, tools, and frameworks used.
-Justify the selection of these technologies.
-Project Lifecycle (20 Points):
+## Requirements
 
-Describe the stages of your project's development.
-Explain the methodologies and processes implemented.
-Requirements (30 Points):
+- **Functional Requirements**:
+  - Automated data retrieval from Google Sheets.
+  - Resume text extraction and analysis.
+  - GitHub profile analysis.
+  - AI-driven candidate comparison and ranking.
+- **Non-Functional Requirements**:
+  - System reliability and scalability.
+  - User-friendly interface.
+  - Data security and privacy compliance.
+- **MMFs**:
+  - **MMF1**: Automated Data Retrieval
+  - **MMF2**: Resume and GitHub Profile Analysis
+  - **MMF3**: Candidate Comparison and Sorting
 
-Document both Functional and Non-Functional Requirements.
-Make sure to mention the 3 MMFs in detail here
-Discuss the process of identifying and prioritizing these requirements.
-Design (30 Points):
+## Testing
 
-Present architectural and low-level design diagrams.
-Explain your design decisions and their impact.
-Testing (50 Points):
+- **Test Strategy**: Our approach included comprehensive whitebox and blackbox testing methods to ensure thorough coverage.
+- **Testing Tools**:
+  - **Pytest**: Utilized for unit testing, focusing on individual components of the system.
+- **Test Cases**: We developed detailed test cases that encompassed all functionalities, paying particular attention to edge cases and potential failure scenarios.
+- **Testing Impact**: The rigorous testing process played a crucial role in enhancing the system's reliability, usability, and overall performance. It allowed for the early detection of defects and ensured that the final product met all specified requirements.
 
-Elaborate on the Test Strategy, including whitebox and blackbox testing methods.
-List various tools used for testing and explain their purpose.
-Provide detailed test cases and their outcomes.
-Discuss how testing influenced the development process and the final product.
+## Conclusion
+
+This project successfully delivered an innovative system that streamlines the recruitment process using AI-driven technologies. Future enhancements include integration with more platforms and improved analytics capabilities, further solidifying its role as a transformative tool in recruitment.
