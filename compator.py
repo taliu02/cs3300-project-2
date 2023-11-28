@@ -180,3 +180,50 @@ def compare_resumes(content:str, nameA="", nameB=""):
                 return 0  # Or any other default value or error indicator
 
     return choice
+
+def get_rubric():
+    text = open("rubric.txt","r").read()
+    return "\nRubric:\n" +str(text)+"\nEND Rubric\n"
+
+
+
+
+
+def comp(candidateA:JobCandidate, candidateB:JobCandidate, rub_id:int=0 ) -> int:
+    comp_table= json.load(open("comparisons.json","r"))
+    tag= (candidateA.email+"#"+candidateB.email+"#"+str(rub_id))
+    inv_tag= (candidateB.email+"#"+candidateA.email+"#"+str(rub_id))
+    if tag in comp_table:
+        if comp_table[tag]==1:
+            printc(candidateA.name+" wins over "+candidateB.name,"magenta")
+        elif comp_table[tag]==-1:
+            printc(candidateB.name+" wins over "+candidateA.name,"magenta")
+
+        return comp_table[tag]
+    elif inv_tag in comp_table:
+        if comp_table[inv_tag]==1:
+            printc(candidateA.name+" wins over "+candidateB.name,"magenta")
+        elif comp_table[inv_tag]==-1:
+            printc(candidateB.name+" wins over "+candidateA.name,"magenta")
+    else:
+        choice = compare_resumes(getContent(candidateA, candidateB), candidateA.name, candidateB.name)   
+        comp_table[tag]=choice
+        comp_table[inv_tag]=choice*-1
+
+        json.dump(comp_table, open("comparisons.json","w"))
+        return choice
+
+
+def compute_scores(candidates):
+    scores = {candidate.email: 0 for candidate in candidates}
+    for i, candidateA in enumerate(candidates):
+        for candidateB in candidates[i+1:]:
+            result = comp(candidateA, candidateB)
+            scores[candidateA.email] += result
+            scores[candidateB.email] -= result
+    print(scores)
+    return scores
+
+def bubble_sort(candidates: list) -> list:
+    scores = compute_scores(candidates)
+    return sorted(candidates, key=lambda x: scores[x.email])
