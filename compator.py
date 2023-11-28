@@ -17,8 +17,6 @@ import xml.etree.ElementTree as ET
 
 
 
-
-
 def printc(obj, color="cyan"):
     color_code = {
         "black": "30", "red": "31", "green": "32", "yellow": "33",
