@@ -2,7 +2,7 @@ import gspread
 import os
 from candidate import JobCandidate
 from dotenv import load_dotenv
-from comparison import bubble_sort
+from compator import bubble_sort
 
 sa = gspread.service_account(filename='service_creds.json')
 sh = sa.open("Figma_swe")
