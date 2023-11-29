@@ -24,7 +24,7 @@ for candidate in sort_cand:
     print(candidate.name)
 
 #in the future
-# writeToSheets(candidates)
+writeToSheets(candidates)
 
     
 
