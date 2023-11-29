@@ -15,6 +15,7 @@ class JobCandidate:
         self.cover_letter = data[4]
         self.linkedin = data[5]
         self.github_link = data[6]
+        self.github_text= self.parse_gh()
         self.personal_website_link = data[7]
         self.visa_sponsorship = data[8]
         self.disability_status = data[9]
@@ -38,6 +39,8 @@ class JobCandidate:
         id = self.resume_link.split('=')[-1]
         pdf_dir = os.path.join(os.getcwd(), "resume_pdfs")
         mmd_dir = os.path.join(os.getcwd(), "resume_mmds")
+
+        # Ensure the directories exist
         if not os.path.exists(pdf_dir):
             os.makedirs(pdf_dir)
         if not os.path.exists(mmd_dir):
@@ -71,11 +74,25 @@ class JobCandidate:
     def parse_gh(self):
         username = self.github_link.replace("https://github.com/", "").replace("github.com", "").replace("/", "")
 
-        return ""
-
+        summary=""
+        if username:
+            file_path = Path(os.getcwd()) / "gh_cache" / f"{username}.md"
+            if not file_path.exists():
+                summary = str(getBasicReport(username))
+                # Write the summary to the file
+                file_path.write_text(summary)
+            else:
+                summary = open(file_path,"r").read()
+            return summary
+        else:
+            return ""
     def parse_portfolio(self):
         pass
 
+    
+
+    
+    
     
     def __lt__(self, other):
         if not isinstance(other, JobCandidate):
