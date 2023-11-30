@@ -60,7 +60,7 @@ def compare_candidates(content:str, nameA="", nameB=""):
         {"role": "user", "content": content}
         ]
 
-    response =completion(model=LLM, messages=messages,max_tokens=170,)
+    response =completion(model=os.environ.get('COMPARATOR_LLM', 'chat-bison'), messages=messages,max_tokens=170,)
     printc(response["choices"][0]["message"],'red')
 
     messages=[
@@ -103,7 +103,7 @@ def compare_candidates_oai(content:str, nameA="", nameB=""):
     while retries > 0:
         try:
             response = openai.ChatCompletion.create(
-                model=LLM,
+                model=os.environ.get('COMPARATOR_LLM', 'chat-bison'),
                 messages=[
         {"role": "user", "content":         
             """
@@ -200,7 +200,7 @@ def comp(candidateA:JobCandidate, candidateB:JobCandidate, rub_id:int=0 ) -> int
         elif comp_table[inv_tag]==-1:
             printc(candidateB.name+" wins over "+candidateA.name,"magenta")
     else:
-        if 'gpt' in LLM:
+        if 'gpt' in os.environ.get('COMPARATOR_LLM', 'chat-bison'):
             choice = compare_candidates_oai(getContent(candidateA, candidateB), candidateA.name, candidateB.name)
         else:
             choice = compare_candidates(getContent(candidateA, candidateB), candidateA.name, candidateB.name)
