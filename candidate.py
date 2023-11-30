@@ -89,8 +89,9 @@ class JobCandidate:
     def parse_portfolio(self):
         pass
 
-    
 
+    def __str__(self):
+        return "My Resume \n"+self.resume_text+"\nMy github\n"+self.github_text
     
     
     

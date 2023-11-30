@@ -109,7 +109,7 @@ def getBasicReport(username: str):
                     {"role": "user", "content": content}
                     ]
 
-                response =completion(model="anthropic.claude-instant-v1", messages=messages,max_tokens=150,temperature=1.0)
+                response =completion(model=os.environ.get('SUMMARIZE_LLM','anthropic.claude-instant-v1'), messages=messages,max_tokens=150,temperature=1.0)
                 summaries.append(response["choices"][0]["message"]['content'])
 
             except:
@@ -125,6 +125,9 @@ def getBasicReport(username: str):
         return summaries
     except:
         return ""
+
+
+        
 
 
 

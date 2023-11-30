@@ -19,8 +19,9 @@ load_dotenv()
 
 candidates=[]
 
-# os.environ['COMPARATOR_LLM']="chat-bison"
-os.environ['COMPARATOR_LLM']="gpt-3.5-turbo-1106"
+# os.environ['SUMMARIZE_LLM']="anthropic.claude-instant-v1"
+# os.environ['COMPARATOR_LLM']="gpt-3.5-turbo-1106"
+# os.environ['CHAT_LLM']="gpt-3.5-turbo"
 for i in range(1, 7):
     candid =JobCandidate(data[i])
     candidates.append(candid)
@@ -37,6 +38,7 @@ print('Select a candidate to chat with. Type in their index number. Type -1 if y
 idx = int(input())
 if idx != -1:
     selected_candidate = candidates[idx]
+    # print(selected_candidate)
     chat_with_candidate(selected_candidate)
 
 # for candidate in candidates:
