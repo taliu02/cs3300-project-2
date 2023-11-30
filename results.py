@@ -1,5 +1,5 @@
 import gspread
-from Candidate import JobCandidate
+from candidate import JobCandidate
 from typing import List
 # Authenticate with Google Sheets using a service account
 sa = gspread.service_account(filename='service_creds.json')
