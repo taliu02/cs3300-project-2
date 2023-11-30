@@ -10,7 +10,6 @@ load_dotenv()
 import litellm
 from litellm import completion
 
-
 def printc(obj, color="cyan"):
     color_code = {
         "black": "30", "red": "31", "green": "32", "yellow": "33",
@@ -74,6 +73,9 @@ def get_repositories(username: str)->List[Repository]:
 
     return final_repo_list
 
+
+
+
 def getBasicReport(username: str):
     try:
         user_repos = get_repositories(username)[:8]
@@ -123,3 +125,8 @@ def getBasicReport(username: str):
         return summaries
     except:
         return ""
+
+
+
+
+
